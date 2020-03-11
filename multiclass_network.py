@@ -15,16 +15,16 @@ from lib.multiclassqueue import MulticlassQueue
 @click.option('--epsilon', default=0.1791, help='The epsilon parameter.')
 @click.option('--init-A0', default=55, help='Queue length at queue A0.')
 @click.option('--runtime', default=5 * 10 ** 4, help='Discrete time simulation length.')
-@click.option('--save-to-file', default=True, help='Enable saving pictures to files.')
+@click.option('--save-to-file/--no-save-to-file', default=True, help='Enable saving pictures to files.', show_default=True)
 @click.option('--output-dir', default="./output", help='Set the output directory for pictures.')
 @click.option('--seed', default=8086, help='Seed used to generate random quantities.')
 @click.option('--version', default='', help='Suffix to append to the output files. Example: "v1" ')
-@click.option('--cache', default=False, help='Read the simulation data form a file.')
+@click.option('--cache/--no-cache', default=False, help='Read the simulation data form a file.', show_default=True)
 @click.option('--cache-dir', default="./cache", help='Set the cache directory for simulations.')
-@click.option('--record', default=True, help='Record simulation data and pictures to files.')
-@click.option('--debug', default=False, help='Enable debugging behaviour.')
-@click.option('--show-progress', default=False, help='Show percentage of simulation completed.')
-@click.option('--color', default=False, help='Enable color in the pictures.')
+@click.option('--record/--no-record', default=True, help='Record simulation data and pictures to files.', show_default=True)
+@click.option('--debug/--no-debug', default=False, help='Enable debugging behaviour.', show_default=True)
+@click.option('--show-progress/--no-show-progress', default=False, help='Show percentage of simulation completed.', show_default=True)
+@click.option('--color/--no-color', default=False, help='Enable color in the pictures.', show_default=True)
 def main(a, k, epsilon, init_a0, runtime, save_to_file, output_dir, seed,
          version, cache, cache_dir, record, debug, show_progress, color):
     len_queue_A0 = len_queue_B0 = None

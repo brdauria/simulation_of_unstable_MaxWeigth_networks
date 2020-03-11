@@ -18,20 +18,20 @@ from lib.movingaverage import MovingAverage
 @click.option('--init-B0', default=0, help='Queue length at queue B0.')
 @click.option('--init-Bj', default=0, help='Queue length at queue Bj.')
 @click.option('--runtime', default=5 * 10 ** 5, help='Discrete time simulation length.')
-@click.option('--save-to-file', default=True, help='Enable saving pictures to files.')
+@click.option('--save-to-file/--no-save-to-file', default=True, help='Enable saving pictures to files.', show_default=True)
 @click.option('--output-dir', default="./output", help='Set the output directory for pictures.')
 @click.option('--seed', default=8086, help='Seed used to generate random quantities.')
 @click.option('--av', default=30, help='Windows parameter to compute moving averages.')
 @click.option('--version', default='', help='Suffix to append to the output files. Example: "v1" ')
-@click.option('--cut', default=True, help='Visualize the cut region.')
-@click.option('--level', default=6000, help='Denote a which level to start the cut.')
-@click.option('--cache', default=True, help='Read the simulation data form a file.')
+@click.option('--cut/--no-cut', default=True, help='Visualize the cut region.', show_default=True)
+@click.option('--cut-level', default=6000, help='Denote a which level to start the cut.')
+@click.option('--cache/--no-cache', default=True, help='Read the simulation data form a file.', show_default=True)
 @click.option('--cache-dir', default="./cache", help='Set the cache directory for simulations.')
-@click.option('--record', default=True, help='Record simulation data and pictures to files.')
-@click.option('--debug', default=False, help='Enable debugging behaviour.')
-@click.option('--show-progress', default=True, help='Show percentage of simulation completed.')
+@click.option('--record/--no-record', default=True, help='Record simulation data and pictures to files.', show_default=True)
+@click.option('--debug/--no-debug', default=False, help='Enable debugging behaviour.', show_default=True)
+@click.option('--show-progress/--no-show-progress', default=True, help='Show percentage of simulation completed.', show_default=True)
 def main(a, nu, j, init_a0, init_aj, init_b0, init_bj, runtime, save_to_file, output_dir, seed, av,
-         version, cut, level, cache, cache_dir, record, debug, show_progress):
+         version, cut, cut_level, cache, cache_dir, record, debug, show_progress):
     queue_A0 = queue_B0 = None
     queue_Aj = queue_Bj = None
     max_queue_Aj = max_queue_Bj = None
@@ -142,7 +142,7 @@ def main(a, nu, j, init_a0, init_aj, init_b0, init_bj, runtime, save_to_file, ou
             ax.xaxis.offsetText.set_fontsize(16)
 
         if cut or show_cut:
-            [start_cut, divisions, end_cut] = find_regions(level, nu ** 2)
+            [start_cut, divisions, end_cut] = find_regions(cut_level, nu ** 2)
         if cut:
             [start, end] = [start_cut, end_cut]
             # plt.subplot(2, 1, 1)
