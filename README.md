@@ -108,6 +108,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Acknowledgments
 The research of _M. Bramson_ was partially supported by **NSF grant DMS-1203201**.  
-The research of _B- D’Auria_ was partially supported by the **Spanish Ministry of Economy and Competitiveness
+The research of _B. D’Auria_ was partially supported by the **Spanish Ministry of Economy and Competitiveness
 Grant MTM2017-85618-P** (via FEDER funds). Part of this research was done while he was a visiting professor
 at the NYUAD (Abu Dhabi, United Arab Emirates).
