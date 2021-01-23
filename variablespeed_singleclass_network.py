@@ -95,11 +95,12 @@ def main(a, m, epsilon, init_a0, runtime, save_to_file, output_dir, seed,
             plt.ylabel('queue-sizes')
             plt.ticklabel_format(axis="both", style="sci", scilimits=(4, 4), useMathText=True)
         else:
-            plt.figure(figsize=(20, 6*1.5), dpi=300, constrained_layout=True)
+            plt.figure(figsize=(20, 6))
             plt.ticklabel_format(axis="both", style="sci", scilimits=(4, 4), useMathText=True)
-            plt.gca().yaxis.offsetText.set_fontsize(32)
-            plt.gca().xaxis.offsetText.set_fontsize(32)
-            plt.gca().tick_params(labelsize=36, length=15, pad=10)
+            plt.gca().yaxis.offsetText.set_fontsize(16)
+            plt.gca().xaxis.offsetText.set_fontsize(16)
+            plt.gca().tick_params(labelsize='xx-large', length=15, pad=10)
+            plt.xlabel('time', fontsize='xx-large')
 
         if color:
             n_fig = 2
@@ -241,9 +242,9 @@ def main(a, m, epsilon, init_a0, runtime, save_to_file, output_dir, seed,
         plot(screen=False, color=color)
         basedir = os.path.expanduser("~") + '/Desktop/' if output_dir is None else output_dir
         filename = get_filename(suffix=version)
-        plt.savefig(os.path.join(basedir, filename), dpi=300)
+        plt.savefig(os.path.join(basedir, filename), bbox_inches='tight', dpi=300)
         filename = get_filename(suffix=version, type=".jpeg")
-        plt.savefig(os.path.join(basedir, filename), dpi=300, format='JPG')
+        plt.savefig(os.path.join(basedir, filename), bbox_inches='tight', dpi=300, format='JPG')
 
 
 if __name__ == "__main__":
